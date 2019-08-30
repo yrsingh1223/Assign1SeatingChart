@@ -42,9 +42,7 @@ public class Classroom extends World
         YashrajSingh yashsingh = new YashrajSingh("Yash Raj", "Singh", 3, 7);
         addObject(yashsingh, 3, 7);
         yashsingh.sitDown();
+    
          
-        
-
-
     }  
 }

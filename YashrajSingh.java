@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * The YashrajSingh class can be used as a model for your own class that represents you and your seating location in AP CSA
@@ -114,9 +115,24 @@ public class YashrajSingh extends Student implements SpecialInterestOrHobby
     public void animation(){
         
         Greenfoot.delay(10);
+       
+        int[][] positions = {
+          {1, 1},  {1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6},
+          {2, 1},  {2, 2}, {2, 3}, {2, 4}, {2, 5}, {2, 6},
+          {3, 1},  {3, 2}, {3, 3}, {3, 4}, {3, 5}, {3, 6},
+          {4, 1},  {4, 2}, {4, 3}, {4, 4}, {4, 5}, {4, 6}
+
+        };
         
-        int xPos = (int) Math.floor(Math.random() * (10 - 1) + 1);
-        int yPos = (int) Math.floor(Math.random() * (6 - 1) + 1);
+        ArrayList<YashrajSinghAnimated> pics = new ArrayList<YashrajSinghAnimated>();
+        
+        for (int i = 0; i < positions.length; i++) {
+            YashrajSinghAnimated pic = new YashrajSinghAnimated();
+            getWorld().addObject(pic, positions[i][1], positions[i][0]);
+        }
+        
+        // getWorld().removeObjects(getWorld().getObjects(YashrajSinghAnimated.class));
+        
         
         
         // move right
