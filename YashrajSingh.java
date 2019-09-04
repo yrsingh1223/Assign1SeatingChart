@@ -117,10 +117,10 @@ public class YashrajSingh extends Student implements SpecialInterestOrHobby
         Greenfoot.delay(10);
        
         int[][] positions = {
-          {1, 1},  {1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6},
-          {2, 1},  {2, 2}, {2, 3}, {2, 4}, {2, 5}, {2, 6},
-          {3, 1},  {3, 2}, {3, 3}, {3, 4}, {3, 5}, {3, 6},
-          {4, 1},  {4, 2}, {4, 3}, {4, 4}, {4, 5}, {4, 6}
+          {1, 1},  {1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7},
+          {2, 1},  {2, 2}, {2, 3}, {2, 4}, {2, 5}, {2, 6}, {2, 7},
+          {3, 1},  {3, 2}, {3, 3}, {3, 4}, {3, 5}, {3, 6}, {3, 7},
+          {4, 1},  {4, 2}, {4, 3}, {4, 4}, {4, 5}, {4, 6}, {4, 7},
 
         };
         
@@ -132,40 +132,27 @@ public class YashrajSingh extends Student implements SpecialInterestOrHobby
         }
         
         // getWorld().removeObjects(getWorld().getObjects(YashrajSinghAnimated.class));
+        timer(7);
         
-        
-        
-        // move right
-        /*for (int i=1;i<=9;i++){
-            setLocation(i,0);
-            Greenfoot.delay(10);
-            turn(i);
-        }
-        // move back
-        for (int i=1;i<=5;i++){
-            setLocation(9,i);
-            Greenfoot.delay(10);
-            turn(i);
-        }      
-         // move left
-        for (int i=9;i>=0;i--){
-            setLocation(i,5);
-            Greenfoot.delay(10);
-            turn(i);
-        }      
-              // move Forward
-        for (int i=5;i>=0;i--){
-            setLocation(0,i);
-            Greenfoot.delay(10);
-            turn(i);
-        }   
-        */
-           Greenfoot.delay(20);
-           returnToSeat();
-           setRotation(0);
+        Greenfoot.delay(20);
+        returnToSeat();
+        setRotation(0);
     }
-     public void myHobby(String s) {
+    
+    public void myHobby(String s) {
          System.out.println(s);
-}
+    }
+    
+    int i=0;
+    public void timer(int time)
+    {
+            i++;
+            if(i==time) {
+                getWorld().removeObjects(getWorld().getObjects(YashrajSinghAnimated.class));
+                System.out.println("LKDSFJLDS");
+            }
+            if(i==time+1)
+                i=0;
+    }
 
 }

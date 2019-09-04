@@ -22,6 +22,7 @@ public class YashrajSinghAnimated extends Actor
    public String soundFile; //      firstName.toLowerCase()+lastName.toLowerCase()+".ext"; (.wav or .jpg)
    Classroom clas = (Classroom) getWorld();
    private boolean played = false;
+   long timer = System.currentTimeMillis();
    
     /**
      * Act - do whatever the YashrajSinghAnimated wants to do. This method is called whenever
@@ -30,8 +31,14 @@ public class YashrajSinghAnimated extends Actor
     
     public void act() 
     {
-        animation();
-    }    
+        if (System.currentTimeMillis() - timer >= 7000)
+        {
+            timer = 0;
+            getWorld().removeObject(this);
+        } else {
+            animation();
+        }    
+    }
     
     private void animation() {
         if (played == false) {
@@ -39,14 +46,14 @@ public class YashrajSinghAnimated extends Actor
            played = true;
         }
         Greenfoot.delay(1);
-        turn(60);
+        turn(25);
     }
     
     public YashrajSinghAnimated() {
         firstName="Yash Raj";
         lastName="Singh";
        // imgFile=firstName.toLowerCase()+ lastName.toLowerCase()+".jpg";
-        imgFile= "kilgoretrout.jpg";//firstName.toLowerCase()+ lastName.toLowerCase()+".jpg";
+        imgFile= "kilgoretrout-standing.jpg";//firstName.toLowerCase()+ lastName.toLowerCase()+".jpg";
         soundFile= "kilgoretrout.wav"; //firstName.toLowerCase()+ lastName.toLowerCase()+".wav";
         setImage(imgFile);
     }
